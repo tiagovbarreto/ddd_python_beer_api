@@ -61,7 +61,7 @@ class Beer(BaseModel):
         cur = con.cursor()
         cur.execute('SELECT * FROM beers')
 
-        records = cur.fechall()
+        records = cur.fetchall()
         beers = [cls(**record) for record in records]
         con.close()
 
