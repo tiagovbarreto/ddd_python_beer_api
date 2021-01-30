@@ -3,67 +3,86 @@ import sqlite3
 import uuid
 
 from typing import List
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
+
 
 class NotFound(Exception):
     pass
 
+
 class Beer(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid:uuid4()))
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
     type: str
-    brand: str
+    origin: str
     alcohol: str
 
     @classmethod
-    def get_by_id(cls, beer_id str):
-        conn: sqlite3.connection(os.getenv('DATABASE_NAME', 'database.db'))
-        conn.row_factory = sqlite3.Row
+    def get_by_id(cls, beer_id: str):
+        con = sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))
+        con.row_factory = sqlite3.Row
 
-        cur = conn.cursor()
-        cur.execute('SELECT * FROM beer WHERE id=? ', beer_id)
+        cur = con.cursor()
+        cur.execute('SELECT * FROM beers WHERE id=? ', (beer_id,))
 
-        record = cur.fechone()
+        record = cur.fetchone()
 
         if record is None:
             raise NotFound
 
         beer = cls(**record)
-        conn.close()
+        con.close()
+
+        return beer
+
+    @classmethod
+    def get_by_name(cls, name: str):
+        con = sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))
+        con.row_factory = sqlite3.Row
+
+        cur = con.cursor()
+        cur.execute('SELECT * FROM beers WHERE name=? ', (name,))
+
+        record = cur.fetchone()
+
+        if record is None:
+            raise NotFound
+
+        beer = cls(**record)
+        con.close()
 
         return beer
 
     @classmethod
     def list(cls) -> List['Beer']:
-        conn: sqlite3.connection(os.getenv('DATABASE_NAME', 'database.db'))
-        conn.row_factory = sqlite3.Row
+        con = sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))
+        con.row_factory = sqlite3.Row
 
-        cur = conn.cursor()
-        cur.execute('SELECT * FROM beer', beer_id)
+        cur = con.cursor()
+        cur.execute('SELECT * FROM beers')
 
-        record = cur.fechall()
-        beers = [ls(**record) for record in records]
-        conn.close()
+        records = cur.fechall()
+        beers = [cls(**record) for record in records]
+        con.close()
 
         return beers
 
-    @classmethod
-    def save(cls) -> 'Beer':
-        with sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db')) as conn:
-            cur = conn.cursor()
+    def save(self) -> 'Beer':
+        with sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db')) as con:
+            cur = con.cursor()
             cur.execute(
-                "INSET INTO beer (id, name, type, origin, alcoholic) VALUES (?,?,?,?,?)"),
-                (self.id, self.name, self.type, self.origin, self.alcoholic)
-            )    
-            conn.commit()
-    
+                "INSERT INTO beers (id,name,type,origin,alcohol) VALUES (?,?,?,?,?)",
+                (self.id, self.name, self.type, self.origin, self.alcohol)
+            )
+            con.commit()
+
         return self
 
     @classmethod
-    def create_table(cls, database_name= 'database.db'):
-        conn = sqlite3.connect(database_name)
-        
-        conn.execute(
-            "CREATE TABLE IF NOT EXISTS beer (id NUMBER, name TEXT, type TEXT, origin TEXT,  alcoholic TEXT)")
+    def create_table(cls, database_name='database.db'):
+        con = sqlite3.connect(database_name)
 
-        conn.close()
+        con.execute(
+            "CREATE TABLE IF NOT EXISTS beers (id TEXT, name TEXT, type TEXT, origin TEXT,  alcohol TEXT)")
+
+        con.close()
