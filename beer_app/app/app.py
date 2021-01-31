@@ -22,5 +22,12 @@ def get_beer(beer_id):
     return jsonify(query.execute().dict())
 
 
+@app.route('/beers', methods=['GET'])
+def list_beers():
+    query = ListBeerQuery()
+    records = [record.dict() for record in query.execute()]
+    return jsonify(records)
+
+
 if __name__ == '__main__':
     app.run()
