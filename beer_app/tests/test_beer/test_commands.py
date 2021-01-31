@@ -12,7 +12,7 @@ def test_create_beer():
     """
     cmd = CreateBeerCommand(
         name='Budweiser',
-        type='Larger',
+        kind='Larger',
         origin='USA',
         alcohol='5'
     )
@@ -23,7 +23,7 @@ def test_create_beer():
 
     assert db_beer.id == beer.id
     assert db_beer.name == beer.name
-    assert db_beer.type == beer.type
+    assert db_beer.kind == beer.kind
     assert db_beer.origin == beer.origin
     assert db_beer.alcohol == beer.alcohol
 
@@ -37,14 +37,14 @@ def test_create_beer_already_exists():
 
     Beer(
         name='Budweiser',
-        type='Larger',
+        kind='Larger',
         origin='USA',
         alcohol='5'
     ).save()
 
     cmd = CreateBeerCommand(
         name='Budweiser',
-        type='Larger',
+        kind='Larger',
         origin='USA',
         alcohol='5'
     )

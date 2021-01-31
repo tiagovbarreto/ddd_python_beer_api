@@ -10,14 +10,14 @@ def test_list_beers():
     """
     Beer(
         name='Budweiser',
-        type='Larger',
+        kind='Larger',
         origin='USA',
         alcohol='5'
     ).save()
 
     Beer(
         name='Eisenbahn',
-        type='Strong Golden Ale',
+        kind='Strong Golden Ale',
         origin='Brasil',
         alcohol='8.5'
     ).save()
@@ -36,7 +36,7 @@ def test_get_beer_by_id():
 
     beer = Beer(
         name='Budweiser',
-        type='Larger',
+        kind='Larger',
         origin='USA',
         alcohol='5'
     ).save()

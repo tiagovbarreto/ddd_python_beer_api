@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Beer",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "alcohol": {
+      "type": "string"
+    }
+  },
+  "required": ["id", "name", "kind", "origin", "alcohol"]
+}
