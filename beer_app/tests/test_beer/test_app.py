@@ -78,3 +78,22 @@ def test_get_beer(client):
 
     validate_payload(response.json, 'Beer.json')
 
+
+def test_list_beers(client):
+    """
+    GIVEN beers stored in the database
+    WHEN endpoint /beers is called
+    THEN it should return list of beer in json format matching schema
+    """
+    Beer(
+        name='Budweiser',
+        kind='Larger',
+        origin='USA',
+        alcohol='5'
+    ).save()
+    response = client.get(
+        '/beers',
+        content_type='application/json',
+    )
+
+    validate_payload(response.json, 'BeerList.json')
