@@ -14,5 +14,13 @@ def create_beer():
     return jsonify(cmd.execute().dict())
 
 
+@app.route('/beers/<beer_id>', methods=['GET'])
+def get_beer(beer_id):
+    query = GetBeerByIDQuery(
+        id=beer_id
+    )
+    return jsonify(query.execute().dict())
+
+
 if __name__ == '__main__':
     app.run()
