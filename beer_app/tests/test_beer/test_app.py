@@ -4,8 +4,8 @@ import pathlib
 import pytest
 from jsonschema import validate, RefResolver
 
-from app.app import app
-from app.models import Beer
+from src.app import app
+from src.models import Beer
 
 
 @pytest.fixture
@@ -59,7 +59,7 @@ def test_create_beer(client):
     validate_payload(response.json, 'Beer.json')
 
 
-def test_get_beer(client):
+def test_get_beer_by_id(client):
     """
     GIVEN ID of beer stored in the database
     WHEN endpoint /beer/<id-of-beer>/ is called
