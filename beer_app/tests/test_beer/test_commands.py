@@ -1,14 +1,15 @@
 import pytest
 
-from app.models import Beer
-from app.commands import CreateBeerCommand, AlreadyExists
+from src.models import Beer
+from src.commands import CreateBeerCommand, DeleteBeerCommand, AlreadyExists
+from src.queries import GetBeerByIDQuery, ListBeerQuery
 
 
 def test_create_beer():
     """"
     GIVEN CreateBeerCommand with valid properties name, brand and alcohol
     WHEN the execute method is called
-    THEN a new Beer must exist in the database with the samet attributes
+    THEN a new Beer must exist in the database with the same attributes
     """
     cmd = CreateBeerCommand(
         name='Budweiser',
@@ -51,3 +52,28 @@ def test_create_beer_already_exists():
 
     with pytest.raises(AlreadyExists):
         cmd.execute()
+
+
+def test_delete_beer():
+    """"
+    GIVEN DeleteBeerCommand with valid property id
+    WHEN the execute method is called
+    THEN a Beer must be deleted from the database
+    """
+    beer = Beer(
+        name='Budweiser',
+        kind='Larger',
+        origin='USA',
+        alcohol='5'
+    ).save()
+
+    query = ListBeerQuery()
+    qtd_beers_before = len(query.execute())
+
+    cmd = DeleteBeerCommand(id=beer.id)
+    cmd.execute()
+
+    query = ListBeerQuery()
+    qtd_beers_after = len(query.execute())
+
+    assert qtd_beers_after == qtd_beers_before - 1

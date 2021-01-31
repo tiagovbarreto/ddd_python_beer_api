@@ -1,5 +1,5 @@
-from app.models import Beer
-from app.queries import ListBeerQuery, GetBeerByIDQuery
+from src.models import Beer
+from src.queries import ListBeerQuery, GetBeerByIDQuery
 
 
 def test_list_beers():
@@ -42,5 +42,5 @@ def test_get_beer_by_id():
     ).save()
 
     query = GetBeerByIDQuery(id=beer.id)
-
-    assert query.execute().id == beer.id
+    result = query.execute()
+    assert result.id == beer.id
