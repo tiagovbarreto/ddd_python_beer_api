@@ -13,7 +13,7 @@ class NotFound(Exception):
 class Beer(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
-    type: str
+    kind: str
     origin: str
     alcohol: str
 
@@ -71,8 +71,8 @@ class Beer(BaseModel):
         with sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db')) as con:
             cur = con.cursor()
             cur.execute(
-                "INSERT INTO beers (id,name,type,origin,alcohol) VALUES (?,?,?,?,?)",
-                (self.id, self.name, self.type, self.origin, self.alcohol)
+                "INSERT INTO beers (id,name,kind,origin,alcohol) VALUES (?,?,?,?,?)",
+                (self.id, self.name, self.kind, self.origin, self.alcohol)
             )
             con.commit()
 
@@ -83,6 +83,6 @@ class Beer(BaseModel):
         con = sqlite3.connect(database_name)
 
         con.execute(
-            "CREATE TABLE IF NOT EXISTS beers (id TEXT, name TEXT, type TEXT, origin TEXT,  alcohol TEXT)")
+            "CREATE TABLE IF NOT EXISTS beers (id TEXT, name TEXT, kind TEXT, origin TEXT,  alcohol TEXT)")
 
         con.close()

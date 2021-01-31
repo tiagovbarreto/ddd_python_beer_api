@@ -8,7 +8,7 @@ class AlreadyExists(Exception):
 
 class CreateBeerCommand(BaseModel):
     name: str
-    type: str
+    kind: str
     origin: str
     alcohol: str
 
@@ -21,7 +21,7 @@ class CreateBeerCommand(BaseModel):
 
         beer = Beer(
             name=self.name,
-            type=self.type,
+            kind=self.kind,
             origin=self.origin,
             alcohol=self.alcohol
         )
