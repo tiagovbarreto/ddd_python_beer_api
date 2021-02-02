@@ -79,6 +79,7 @@ $ python init_db.py
 ```sh
 cd python_beer_api
 $ export FLASK_APP=src/app.py
+$ export FLASK_ENV=development
 $ flask run
 ```
 
