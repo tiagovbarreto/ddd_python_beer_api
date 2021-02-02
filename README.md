@@ -102,7 +102,7 @@ $ cd python_beer_api
 source venv/bin/activate
 ```
 
-#### Activate venv
+#### Deactivate venv
 ```sh
 $ deactivate
 ```
