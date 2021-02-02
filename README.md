@@ -1,4 +1,4 @@
-# Beer api manager
+# Beer Api Manager
 A small and simple project that offers an API to manage beers. 
 
 ## Table of contents
