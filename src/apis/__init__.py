@@ -1,6 +1,6 @@
 from flask_restplus import Api
 
-from .beer_routes import ns as ns1
+from .beer_routes import api as ns1
 #from .namespace2 import api as ns2
 # ...
 #from .namespaceX import api as nsX

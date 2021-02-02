@@ -1,8 +1,9 @@
+from flask import request
 
 from flask_restplus import Namespace, Resource, fields
 
-from src.app.commands import CreateBeerCommand, UpdateBeerCommand, DeleteBeerCommand
-from src.app.queries import GetBeerByIDQuery, ListBeerQuery
+from src.application.commands import CreateBeerCommand, UpdateBeerCommand, DeleteBeerCommand
+from src.application.queries import GetBeerByIDQuery, ListBeerQuery
 
 api = Namespace('beers', description='Beers APIs')
 
@@ -20,12 +21,11 @@ class BeerList(Resource):
 
     @api.expect(model)
     @api.marshal_with(model)
-    @api.respoapie(201, 'Success', model)
+    @api.response(201, 'Success', model)
     def post(self):
-        # cmd = CreateBeerCommand(api.payload)
-        # res = cmd.execute()
-        # return res, 201
-        pass
+        cmd = CreateBeerCommand(**request.json)
+        res = cmd.execute()
+        return res, 201
 
     @api.marshal_list_with(model)
     def get(self):
@@ -34,7 +34,7 @@ class BeerList(Resource):
         return records, 200
 
     @api.route('/<string:id>')
-    @api.respoapie(404, 'Beer not found')
+    @api.response(404, 'Beer not found')
     @api.param('id', 'Beer identifier')
     class Beer(Resource):
 
@@ -51,7 +51,7 @@ class BeerList(Resource):
             res = cmd.execute()
             return res, 200
 
-        @api.respoapie(204, 'Beer deleted')
+        @api.response(204, 'Beer deleted')
         def delete(self, id):
             cmd = DeleteBeerCommand(id=id)
             cmd.execute()
