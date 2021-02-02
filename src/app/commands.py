@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from src.models import Beer, NotFound
+from src.domain.models import Beer, NotFound
 
 
 class AlreadyExists(Exception):

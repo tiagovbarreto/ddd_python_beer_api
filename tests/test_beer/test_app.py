@@ -5,7 +5,7 @@ import pytest
 from jsonschema import validate, RefResolver
 
 from src.app import app
-from src.models import Beer
+from src.domain.models import Beer
 
 
 @pytest.fixture

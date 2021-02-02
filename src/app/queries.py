@@ -1,6 +1,6 @@
 from typing import List
 from pydantic import BaseModel
-from src.models import Beer
+from src.domain.models import Beer
 
 
 class ListBeerQuery(BaseModel):

@@ -2,7 +2,7 @@ import os
 import tempfile
 import pytest
 
-from src.models import Beer
+from src.domain.models import Beer
 
 
 @pytest.fixture(autouse=True)

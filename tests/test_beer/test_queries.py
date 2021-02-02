@@ -1,5 +1,5 @@
-from src.models import Beer
-from src.queries import ListBeerQuery, GetBeerByIDQuery
+from src.domain.models import Beer
+from src.app.queries import ListBeerQuery, GetBeerByIDQuery
 
 
 def test_list_beers():

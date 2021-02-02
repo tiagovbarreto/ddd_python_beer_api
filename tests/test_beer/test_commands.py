@@ -1,8 +1,8 @@
 import pytest
 
-from src.models import Beer
-from src.commands import CreateBeerCommand, DeleteBeerCommand, AlreadyExists
-from src.queries import GetBeerByIDQuery, ListBeerQuery
+from src.domain.models import Beer
+from src.app.commands import CreateBeerCommand, DeleteBeerCommand, AlreadyExists
+from src.app.queries import GetBeerByIDQuery, ListBeerQuery
 
 
 def test_create_beer():
