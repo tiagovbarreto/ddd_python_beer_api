@@ -31,6 +31,7 @@ List of features ready and TODOs for future development
 To-do list:
 * Improve tests for unhappy path scenarios
 * Create abstract factory for persistency layer
+* Implement concrete persistency factory for Sqlalchemy
 * dockerize application
 
 ## Technologies
