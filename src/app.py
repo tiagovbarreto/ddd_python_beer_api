@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_restplus import Api, Resource, fields
 
-from src.commands import CreateBeerCommand
+from src.commands import CreateBeerCommand, UpdateBeerCommand, DeleteBeerCommand
 from src.queries import GetBeerByIDQuery, ListBeerQuery
 
 app = Flask(__name__)
@@ -41,13 +41,26 @@ class BeerList(Resource):
 
 @ns.route('/<string:id>')
 @ns.response(404, 'Beer not found')
-@ns.param('id', 'The task identifier')
+@ns.param('id', 'Beer identifier')
 class Beer(Resource):
     @ns.marshal_with(model)
     def get(self, id):
         query = GetBeerByIDQuery(id=id)
         res = query.execute()
         return res
+
+    @ns.expect(model)
+    @ns.marshal_with(model)
+    def put(self, id):
+        cmd = UpdateBeerCommand(id=id, data=api.payload)
+        res = cmd.execute()
+        return res, 200
+
+    @ns.response(204, 'Beer deleted')
+    def delete(self, id):
+        cmd = DeleteBeerCommand(id=id)
+        cmd.execute()
+        return '', 204
 
 
 if __name__ == '__main__':

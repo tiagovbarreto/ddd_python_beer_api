@@ -79,6 +79,16 @@ class Beer(BaseModel):
 
         return self
 
+    def update(self) -> 'Beer':
+        with sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db')) as con:
+
+            cur = con.cursor()
+            cur.execute("UPDATE beers SET name=?, kind=?, origin=?, alcohol=? WHERE id=?",
+                        (self.name, self.kind, self.origin, self.alcohol, self.id))
+            con.commit()
+
+        return self
+
     def delete(self):
         with sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db')) as con:
             print(f'{self.id}')
@@ -87,7 +97,7 @@ class Beer(BaseModel):
             cur.execute(sql, (self.id,))
             con.commit()
 
-    @classmethod
+    @ classmethod
     def create_table(cls, database_name='database.db'):
         con = sqlite3.connect(database_name)
 
