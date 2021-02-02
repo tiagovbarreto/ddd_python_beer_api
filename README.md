@@ -1,4 +1,4 @@
-# Tasks manager
+# Beer api manager
 A small and simple project that offers an API to manage beers. 
 
 ## Table of contents
