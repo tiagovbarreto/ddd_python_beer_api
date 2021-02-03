@@ -33,8 +33,7 @@ To-do list:
 - [X] Make initial swagger documentation  
 - [X] Detach routes from app
 - [ ] Improve tests for unhappy path scenarios
-- [ ] Create abstract factory for persistency layer
-- [ ] Implement concrete persistency factory for Sqlalchemy
+- [ ] Create repository persistancy
 - [ ] dockerize application
 
 ## Technologies
