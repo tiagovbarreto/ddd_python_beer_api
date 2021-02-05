@@ -23,7 +23,8 @@ class BeerList(Resource):
     @api.marshal_with(model)
     @api.response(201, 'Success', model)
     def post(self):
-        cmd = CreateBeerCommand(**request.json)
+        dto = BeerCreateDTO.from(**request.json)
+        cmd = CreateBeerCommand(dto)
         res = cmd.execute()
         return res, 201
 
