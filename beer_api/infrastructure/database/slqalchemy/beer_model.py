@@ -2,12 +2,12 @@ import uuid
 from sqlalchemy import Column, String, Table, ForeignKey
 from .config import Base
 
-from src.domain.entities.beer import Beer
-from src.domain.valueobjects.name import Name
-from src.domain.valueobjects.kind import Kind
-from src.domain.valueobjects.origin import Origin
-from src.domain.valueobjects.alcohol import Alcohol
-from src.domain.valueobjects.refid import RefId
+from beer_api.domain.entities.beer import Beer
+from beer_api.domain.valueobjects.name import Name
+from beer_api.domain.valueobjects.kind import Kind
+from beer_api.domain.valueobjects.origin import Origin
+from beer_api.domain.valueobjects.alcohol import Alcohol
+from beer_api.domain.valueobjects.refid import RefId
 
 
 class BeerModel(Base):

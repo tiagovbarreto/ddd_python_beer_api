@@ -4,8 +4,8 @@ import pathlib
 import pytest
 from jsonschema import validate, RefResolver
 
-from src.app import app
-from src.domain.entities.beer import Beer
+from beer_api.app import app
+from beer_api.domain.entities.beer import Beer
 
 
 def makePostBeer(client):

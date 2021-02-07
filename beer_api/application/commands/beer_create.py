@@ -1,6 +1,6 @@
-from src.domain.entities.beer import Beer
-from src.domain.usecases.create_beer import CreateBeerUseCase
-from src.domain.usecases.beer_create_dto import CreateBeerDTO
+from beer_api.domain.entities.beer import Beer
+from beer_api.domain.usecases.create_beer import CreateBeerUseCase
+from beer_api.domain.usecases.beer_create_dto import CreateBeerDTO
 
 
 class CreateBeerCommand:

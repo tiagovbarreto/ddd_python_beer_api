@@ -1,6 +1,6 @@
 import abc
-from src.domain.entities.beer import Beer
-from src.domain.valueobjects.refid import RefId
+from beer_api.domain.entities.beer import Beer
+from beer_api.domain.valueobjects.refid import RefId
 
 
 class BeerRepository(abc.ABC):
