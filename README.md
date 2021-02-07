@@ -17,7 +17,7 @@ A project that offers an API to manage beers.
 The intention of doing this project was to understand how to develop the backend architecture using ddd, python, flask, sqllite.
 
 ## Inspiration
-The knowledge acquired in this project was provided majority by the content in ["github repo"](https://github.com/valignatev/ddd-dynamic) organaized by Valentin Ignatev. 
+The knowledge acquired in this project was provided majority by the content in [github repo](https://github.com/valignatev/ddd-dynamic) organaized by Valentin Ignatev. 
 
 Thanks a lot Valentin Ignatev!
 
