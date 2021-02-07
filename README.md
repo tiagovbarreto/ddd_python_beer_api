@@ -29,10 +29,12 @@ List of features ready and TODOs for future development
 * Search beer by id
 
 To-do list:
-* Improve tests for unhappy path scenarios
-* Create abstract factory for persistency layer
-* Implement concrete persistency factory for Sqlalchemy
-* dockerize application
+- [X] Make straightforward version works with tests
+- [X] Make initial swagger documentation  
+- [X] Detach routes from app
+- [ ] Improve tests for unhappy path scenarios
+- [ ] Create repository persistancy
+- [ ] dockerize application
 
 ## Technologies
 * Python - https://www.python.org/
@@ -79,9 +81,7 @@ $ python init_db.py
 #### Run application
 ```sh
 cd python_beer_api
-$ export FLASK_APP=src/app.py
-$ export FLASK_ENV=development
-$ flask run
+$ export FLASK_APP=src/app.py && export FLASK_ENV=development && flask run
 ```
 
 ## Tests
