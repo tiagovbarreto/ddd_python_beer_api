@@ -17,9 +17,10 @@ A small and simple project that offers an API to manage beers.
 The intention of doing this project was to understand how to develop the backend architecture using python, flask, sqllite.
 
 ## Inspiration
-The knowledge acquired in this project was provided majority by the article ["Modern Test-Driven Development in Python"](https://testdriven.io/blog/modern-tdd/) written by Jan Giacomelli. 
+The knowledge acquired in this project was provided majority by the content in ["github repo"](https://github.com/valignatev/ddd-dynamic) organaized by Valentin Ignatev. 
 
-Thanks a lot Jan Giacomelli!
+
+Thanks a lot Valentin Ignatev!
 
 ## Features
 List of features ready and TODOs for future development
