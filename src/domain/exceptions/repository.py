@@ -1,5 +1,5 @@
-class RepositoryError(Exception):
-    error_id = "error:repository"
+class RepositoryException(Exception):
+    error_id = "exception:repository"
 
     def __init__(self, repository: str, message: str):
         self._repository = repository

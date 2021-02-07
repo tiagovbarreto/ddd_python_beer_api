@@ -3,11 +3,11 @@ from sqlalchemy import Column, String, Table, ForeignKey
 from .config import Base
 
 from src.domain.entities.beer import Beer
-from src.domain.valueojbects.name import Name
-from src.domain.valueojbects.kind import Kind
-from src.domain.valueojbects.origin import Origin
-from src.domain.valueojbects.alcohol import Alcohol
-from src.domain.valueojbects.refid import RefId
+from src.domain.valueobjects.name import Name
+from src.domain.valueobjects.kind import Kind
+from src.domain.valueobjects.origin import Origin
+from src.domain.valueobjects.alcohol import Alcohol
+from src.domain.valueobjects.refid import RefId
 
 
 class BeerModel(Base):

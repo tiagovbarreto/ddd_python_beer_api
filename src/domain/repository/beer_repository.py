@@ -1,25 +1,25 @@
 import abc
 from src.domain.entities.beer import Beer
-from src.domain.valueojbects.refid import RefId
+from src.domain.valueobjects.refid import RefId
 
 
 class BeerRepository(abc.ABC):
     @abc.abstractmethod
-    def insert(self, beer: Beer) -> None:
-        raise NotImplementedError()
+    def insert(self, beer: Beer) -> Beer:
+        pass
 
     @abc.abstractmethod
-    def update(self, beer: Beer) -> None:
-        raise NotImplementedError()
+    def update(self, beer: Beer) -> Beer:
+        pass
 
     @abc.abstractmethod
     def delete(self, ref_id: RefId) -> None:
-        raise NotImplementedError()
+        pass
 
     @abc.abstractmethod
-    def get_by_ref_id(self, ref_id: RefId) -> Beer:
-        raise NotImplementedError()
+    def find_by_id(self, ref_id: RefId) -> Beer:
+        pass
 
     @abc.abstractmethod
-    def list_all(self) -> [Beer]:
-        raise NotImplementedError()
+    def find_all(self) -> [Beer]:
+        pass

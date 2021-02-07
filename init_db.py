@@ -1,3 +1,3 @@
 if __name__ == '__main__':
-    from src.models import Beer
-    Beer.create_table()
+    from src.db import DB
+    DB.create_table()

@@ -1,21 +1,26 @@
 from dataclasses import dataclass
-from src.domain.valueobjects import Name, Kind, Origin, Alcohol
+
+from src.domain.valueobjects.alcohol import Alcohol
+from src.domain.valueobjects.kind import Kind
+from src.domain.valueobjects.name import Name
+from src.domain.valueobjects.origin import Origin
+from src.domain.valueobjects.refid import RefId
 
 
 @dataclass(frozen=True)
-class Beer():
-    __create_key = object()
-
+class Beer:
     id: RefId
-    name: Name
-    kind: Kind
-    origin: Origin
     alcohol: Alcohol
+    kind: Kind
+    name: Name
+    origin: Origin
 
     def __post_init__(self):
-        assert isinstance(name, Name), "'name' must be an instance of Name."
-        assert isinstance(kind, Kind), "'kind' must be an instance of Kind."
         assert isinstance(
-            origin, Origin), "'origin' must be an instance of Origin."
+            self.name, Name), "'name' must be an instance of Name."
         assert isinstance(
-            alcohol, Alcohol), "'alcohol' must be an instance of Acohol."
+            self.kind, Kind), "'kind' must be an instance of Kind."
+        assert isinstance(
+            self.origin, Origin), "'origin' must be an instance of Origin."
+        assert isinstance(
+            self.alcohol, Alcohol), "'alcohol' must be an instance of Acohol."

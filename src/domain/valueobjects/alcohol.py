@@ -21,8 +21,8 @@ class Alcohol():
 
         value = value.strip()
 
-        if not (1 < len(value) < 3):
+        if not (1 < len(value) < 5):
             raise ValueError(
-                "'value must be a string with at least 1 and a maximum of 3 characters")
+                "'Alcohol value must be a string with at least 1 and a maximum of 5 characters")
 
         return Alcohol(value=value, create_key=cls.__create_key)

@@ -1,5 +1,5 @@
 from flask import Flask
-from src.apis import api
+from src.presentation import api
 
 app = Flask(__name__)
 api.init_app(app)
