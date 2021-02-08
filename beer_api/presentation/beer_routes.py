@@ -1,10 +1,11 @@
+import os
 from flask import request
 from flask_restplus import Namespace, Resource, fields
 
-from src.domain.usecases.beer_create_dto import CreateBeerDTO
-from src.infrastructure.database.sqlite.beer_repository import SQLiteBeerRepository
-from src.domain.usecases.create_beer import CreateBeerUseCase
-from src.application.commands.beer_create import CreateBeerCommand
+from beer_api.domain.usecases.beer_create_dto import CreateBeerDTO
+from beer_api.infrastructure.database.sqlite.beer_repository import SQLiteBeerRepository
+from beer_api.domain.usecases.create_beer import CreateBeerUseCase
+from beer_api.application.commands.beer_create import CreateBeerCommand
 
 api = Namespace('beers', description='Beers APIs')
 
@@ -25,7 +26,9 @@ class BeerList(Resource):
     @api.response(201, 'Success', model)
     def post(self):
 
-        beer_repository = SQLiteBeerRepository()
+        #TODO move this initialization to a application config function 
+        # that will be called by the initialization function of the application. 
+        beer_repository = SQLiteBeerRepository(os.getenv("DATABASE_NAME", "database.db"))
         create_beer_usecase = CreateBeerUseCase(beer_repository)
         create_beer_command = CreateBeerCommand(create_beer_usecase)
 

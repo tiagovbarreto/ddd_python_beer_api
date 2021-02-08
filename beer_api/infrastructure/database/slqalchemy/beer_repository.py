@@ -1,6 +1,6 @@
 import logging
-from src.domain.repository.beer_repository import BeerRepository
-from src.domain.entities.beer import Beer
+from beer_api.domain.repository.beer_repository import BeerRepository
+from beer_api.domain.entities.beer import Beer
 from .config import session
 from .beer_model import BeerModel
 

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from src.domain.models import Beer, NotFound
+from beer_api.domain.models import Beer, NotFound
 
 
 class UpdateBeerCommand(BaseModel):

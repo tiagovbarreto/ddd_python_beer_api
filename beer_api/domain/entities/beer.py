@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from src.domain.valueobjects.alcohol import Alcohol
-from src.domain.valueobjects.kind import Kind
-from src.domain.valueobjects.name import Name
-from src.domain.valueobjects.origin import Origin
-from src.domain.valueobjects.refid import RefId
+from beer_api.domain.valueobjects.alcohol import Alcohol
+from beer_api.domain.valueobjects.kind import Kind
+from beer_api.domain.valueobjects.name import Name
+from beer_api.domain.valueobjects.origin import Origin
+from beer_api.domain.valueobjects.refid import RefId
 
 
 @dataclass(frozen=True)
