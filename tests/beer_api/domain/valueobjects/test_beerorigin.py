@@ -36,8 +36,8 @@ class TestBeerOrigin:
         with pytest.raises(ValueError):
             BeerOrigin.create(beer_origin)
     
-    def test_should_not_create_beerorigin_with_length_less_than_three_characteres(self):
-        beer_origin = "be"
+    def test_should_not_create_beerorigin_with_length_less_than_five_characteres(self):
+        beer_origin = "Coun"
         with pytest.raises(ValueError):
             BeerOrigin.create(beer_origin)
     
