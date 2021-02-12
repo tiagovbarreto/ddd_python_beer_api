@@ -2,11 +2,12 @@ import os
 from flask import request
 from flask_restplus import Namespace, Resource, fields
 
-from main.domain.usecases.beercreatedto import CreateBeerDTO
-from main.infrastructure.database.sqlite.beerrepository import SQLiteBeerRepository
-from main.infrastructure.database.slqalchemy.beerrepository import SQLACBeerRepository
-from main.domain.usecases.createbeer import CreateBeerUseCase
-from main.application.commands.beercreate import CreateBeerCommand
+from app.main.application.commands.beercreate import CreateBeerCommand
+from app.main.domain.usecases.beercreatedto import CreateBeerDTO
+from app.main.domain.usecases.createbeer import CreateBeerUseCase
+from app.main.application.commands.beercreate import CreateBeerCommand
+from app.main.infrastructure.database.sqlite.beerrepository import SQLiteBeerRepository
+from app.main.infrastructure.database.slqalchemy.beerrepository import SQLACBeerRepository
 
 api = Namespace('beers', description='Beers APIs')
 

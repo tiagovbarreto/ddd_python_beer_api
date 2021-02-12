@@ -1,17 +1,17 @@
 import uuid
-from sqlalchemy import Column, String, Table, ForeignKey
-from .config import Base
-
-from main.domain.entities.beer import Beer
-from main.domain.valueobjects.beername import BeerName
-from main.domain.valueobjects.refid import RefId
+from app.main import db
 
 
-class BeerModel(Base):
+from app.main.domain.entities.beer import Beer
+from app.main.domain.valueobjects.beername import BeerName
+from app.main.domain.valueobjects.refid import RefId
+
+
+class BeerModel(db.Model):
     __tablename__ = "beers"
 
-    id = Column("id", String(36), primary_key=True)
-    name = Column("name", String(50), unique=True, nullable=False)
+    id = db.Column("id", db.String(36), primary_key=True)
+    name = db.Column("name", db.String(50), unique=True, nullable=False)
 
     @classmethod
     def create_from(cls, beer: Beer) -> "BeerModel":

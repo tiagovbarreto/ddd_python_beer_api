@@ -1,6 +1,6 @@
 import pytest
 import uuid
-from main.domain.valueobjects.refid import RefId
+from app.maindoapp.mainvalueobjects.refid import RefId
 
 
 class TestRfid:

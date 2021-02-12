@@ -1,9 +1,9 @@
-from main.domain.repository.beerrepository import BeerRepository
-from main.domain.exceptions.beernamealreadyexists import BeerNameAlreadyExistsException
+from app.main.domain.repository.beerrepository import BeerRepository
+from app.main.domain.exceptions.beernamealreadyexists import BeerNameAlreadyExistsException
 
-from main.domain.entities.beer import Beer
-from main.domain.valueobjects.refid import RefId
-from main.domain.valueobjects.beername import BeerName
+from app.main.domain.entities.beer import Beer
+from app.main.domain.valueobjects.refid import RefId
+from app.main.domain.valueobjects.beername import BeerName
 
 from .beercreatedto import CreateBeerDTO
 

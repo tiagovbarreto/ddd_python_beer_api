@@ -132,4 +132,7 @@ dmypy.json
 .vscode
 
 #database.db
-database.db
+*.db
+
+#migrations
+/migrations

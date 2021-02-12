@@ -1,7 +1,7 @@
 import logging
-from main.domain.repository.beerrepository import BeerRepository
-from main.domain.entities.beer import Beer
-from main.domain.valueobjects.refid import RefId
+from app.main.domain.repository.beerrepository import BeerRepository
+from app.main.domain.entities.beer import Beer
+from app.main.domain.valueobjects.refid import RefId
 from .config import session
 from .beermodel import BeerModel
 

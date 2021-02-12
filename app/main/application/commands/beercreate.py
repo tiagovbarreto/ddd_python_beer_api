@@ -1,6 +1,6 @@
-from main.domain.entities.beer import Beer
-from main.domain.usecases.createbeer import CreateBeerUseCase
-from main.domain.usecases.beercreatedto import CreateBeerDTO
+from app.maindoapp.mainentities.beer import Beer
+from app.maindoapp.mainusecases.createbeer import CreateBeerUseCase
+from app.maindoapp.mainusecases.beercreatedto import CreateBeerDTO
 
 
 class CreateBeerCommand:

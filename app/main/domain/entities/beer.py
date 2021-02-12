@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from main.domain.valueobjects.refid import RefId
-from main.domain.valueobjects.beername import BeerName
+from app.main.domain.valueobjects.refid import RefId
+from app.main.domain.valueobjects.beername import BeerName
 
 
 @dataclass(frozen=True)

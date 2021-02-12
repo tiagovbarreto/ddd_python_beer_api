@@ -2,7 +2,7 @@ import os
 import tempfile
 import pytest
 
-from main.db import DB
+from app.maindb import DB
 
 
 @pytest.fixture(autouse=True)

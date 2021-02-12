@@ -4,8 +4,8 @@ import pathlib
 import pytest
 from jsonschema import validate, RefResolver
 
-from main.app import app
-from main.domain.entities.beer import Beer
+from app.mainapp import app
+from app.maindoapp.mainentities.beer import Beer
 
 
 @pytest.fixture

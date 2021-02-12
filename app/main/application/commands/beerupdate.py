@@ -1,4 +1,4 @@
-from main.domain.entities.beer import Beer
+from app.maindoapp.mainentities.beer import Beer
 
 
 class UpdateBeerCommand():
