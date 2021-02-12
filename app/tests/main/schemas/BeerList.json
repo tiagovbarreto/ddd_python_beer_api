@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BeerList",
+  "type": "array",
+  "items": { "$ref": "file:Beer.json" }
+}
