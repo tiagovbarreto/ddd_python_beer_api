@@ -10,6 +10,9 @@ _logger = logging.Logger(__name__)
 
 
 class SQLACBeerRepository(BeerRepository):
+
+    TYPE = "SQLACBeerRepository"
+
     def insert(self, beer: Beer) -> Beer:
         _logger.debug(f"Preparing to insert Beer:{beer}")
 

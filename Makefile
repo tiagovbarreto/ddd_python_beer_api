@@ -11,9 +11,13 @@ install:
 	. venv/bin/activate; \
 	pip install -r requirements.txt;
 
-tests:
+test_unit:
 	. venv/bin/activate; \
-	python manage.py test
+	python manage.py test_unit
+
+test_integration:
+	. venv/bin/activate; \
+	python manage.py test_integration
 
 run:
 	. venv/bin/activate; \

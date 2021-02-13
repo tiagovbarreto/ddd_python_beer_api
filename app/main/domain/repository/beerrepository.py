@@ -4,6 +4,13 @@ from app.maindoapp.mainvalueobjects.refid import RefId
 
 
 class BeerRepository(abc.ABC):
+
+    @property
+    @classmethod
+    @abstractmethod
+    def TYPE(cls):
+        return NotImplementedError
+
     @abc.abstractmethod
     def insert(self, beer: Beer) -> Beer:
         pass

@@ -14,6 +14,9 @@ _logger = logging.Logger(__name__)
 
 
 class SQLiteBeerRepository(BeerRepository):
+
+    TYPE = "SQLiteBeerRepository"
+
     def __init__(self, database: str):
         self._database = database
 

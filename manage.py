@@ -25,16 +25,15 @@ def run():
 
 
 @manager.command
-def test():
+def test_unit():
 
-    pytest.main(["-s", "./app/tests"])
+    pytest.main(["-s", "./app/tests/unit"])
 
-    # """Runs the unit tests."""
-    # tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
-    # result = unittest.TextTestRunner(verbosity=2).run(tests)
-    # if result.wasSuccessful():
-    #     return 0
-    # return 1
+
+@manager.command
+def test_integration():
+
+    pytest.main(["-s", "./app/tests/integration"])
 
 
 if __name__ == '__main__':
