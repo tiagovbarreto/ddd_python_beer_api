@@ -1,9 +1,9 @@
 import pytest
 import uuid
 
-from app.maindoapp.mainentities.beer import Beer
-from app.maindoapp.mainvalueobjects.refid import RefId
-from app.maindoapp.mainvalueobjects.beername import BeerName
+from app.main.domain.entities.beer import Beer
+from app.main.domain.valueobjects.refid import RefId
+from app.main.domain.valueobjects.beername import BeerName
 
 
 class TestBeer:

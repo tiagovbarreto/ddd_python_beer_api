@@ -1,6 +1,7 @@
 import pytest
 import uuid
-from app.maindoapp.mainvalueobjects.beername import BeerName
+
+from app.main.domain.valueobjects.beername import BeerName
 
 
 class TestBeerName:
