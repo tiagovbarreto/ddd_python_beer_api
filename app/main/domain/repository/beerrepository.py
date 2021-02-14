@@ -1,15 +1,15 @@
 import abc
-from app.maindoapp.mainentities.beer import Beer
-from app.maindoapp.mainvalueobjects.refid import RefId
+from app.main.domain.entities.beer import Beer
+from app.main.domain.valueobjects.refid import RefId
 
 
 class BeerRepository(abc.ABC):
 
-    @property
-    @classmethod
-    @abstractmethod
-    def TYPE(cls):
-        return NotImplementedError
+    # @property
+    # @classmethod
+    # @abc.abstractmethod
+    # def TYPE(cls):
+    #     return NotImplementedError
 
     @abc.abstractmethod
     def insert(self, beer: Beer) -> Beer:

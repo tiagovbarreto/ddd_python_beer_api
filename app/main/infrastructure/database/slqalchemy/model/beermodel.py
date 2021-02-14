@@ -11,7 +11,7 @@ class BeerModel(db.Model):
     __tablename__ = "beers"
 
     id = db.Column("id", db.String(36), primary_key=True)
-    name = db.Column("name", db.String(50), unique=True, nullable=False)
+    name = db.Column("name", db.String(30), unique=True, nullable=False)
 
     @classmethod
     def create_from(cls, beer: Beer) -> "BeerModel":

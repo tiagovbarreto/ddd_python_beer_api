@@ -15,7 +15,7 @@ class DevelopmentConfig(Config):
     # uncomment the line below to use postgres
     # SQLALCHEMY_DATABASE_URI = postgres_local_base
     DEBUG = True
-    SQLITE_DATABASE_URI = 'sqlite:///' + \
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + \
         os.path.join(basedir, 'database_main.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -23,7 +23,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     DEBUG = True
     TESTING = True
-    SQLITE_DATABASE_URI = 'sqlite:///' + \
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + \
         os.path.join(basedir, 'database_test.db')
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False

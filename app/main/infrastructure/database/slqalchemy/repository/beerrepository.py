@@ -2,8 +2,8 @@ import logging
 from app.main.domain.repository.beerrepository import BeerRepository
 from app.main.domain.entities.beer import Beer
 from app.main.domain.valueobjects.refid import RefId
-from .config import session
-from .beermodel import BeerModel
+from app.main import db
+from ..model.beermodel import BeerModel
 
 
 _logger = logging.Logger(__name__)
@@ -11,14 +11,17 @@ _logger = logging.Logger(__name__)
 
 class SQLACBeerRepository(BeerRepository):
 
-    TYPE = "SQLACBeerRepository"
+    # @property
+    # @classmethod
+    # @abc.abstractmethod
+    # TYPE = "SQLACBeerRepository"
 
     def insert(self, beer: Beer) -> Beer:
         _logger.debug(f"Preparing to insert Beer:{beer}")
 
         model = BeerModel.create_from(beer)
-        session.add(model)
-        session.commit()
+        db.session.add(model)
+        db.session.commit()
 
     def update(self, beer: Beer) -> 'Beer':
         pass
