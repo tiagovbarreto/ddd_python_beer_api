@@ -36,10 +36,11 @@ To-do list:
 ## Technologies
 * Python - https://www.python.org/
 * Flask - https://flask.palletsprojects.com/en/1.1.x/
-* PyTest - https://docs.pytest.org/en/stable/
-* Swagger - https://swagger.io/
+* Flask-Script - https://flask-script.readthedocs.io/en/latest/
 * Flask-Restplus - https://flask-restplus.readthedocs.io/en/stable/
+* PyTest - https://docs.pytest.org/en/stable/
 * SQLite - https://www.sqlite.org/index.html
+* Swagger - https://swagger.io/
 
 ## Startup
 
