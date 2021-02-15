@@ -32,7 +32,7 @@ class SQLACBeerRepository(BeerRepository):
     def find_by_id(self, id: RefId) -> Beer:
         _logger.debug(f"Preparing to find Beer by id:{id}")
 
-        model = session.query(BeerModel).get(str(id))
+        model = db.session.query(BeerModel).get(id.value.hex)
 
         if model:
             return model.to_entity()
@@ -42,7 +42,7 @@ class SQLACBeerRepository(BeerRepository):
     def find_all(self) -> [Beer]:
         _logger.debug(f"Preparing to list all Beers")
 
-        result = session.query(BeerModel).all()
+        result = db.session.query(BeerModel).all()
 
         if result:
             return [model.to_entity() for model in result]
@@ -50,4 +50,11 @@ class SQLACBeerRepository(BeerRepository):
         return None
 
     def find_by_name(self, name: str) -> Beer:
+        _logger.debug(f"Preparing to find Beer by name:{name}")
+
+        model = BeerModel.query.filter_by(name=name).first()
+
+        if model:
+            return model.to_entity()
+
         return None
