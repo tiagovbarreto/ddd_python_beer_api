@@ -17,7 +17,7 @@ test_unit:
 
 test_integration:
 	. venv/bin/activate; \
-	python manage.py test_integration
+	python zmanage.py test_integration
 
 run:
 	. venv/bin/activate; \

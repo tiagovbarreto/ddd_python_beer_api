@@ -9,6 +9,7 @@ error_handler_bp = Blueprint('handle_error', __name__)
 
 @error_handler_bp.app_errorhandler(Exception)
 def handle_error(error):
+    print(error)
     status_code = int(error.status_code)
     message = error.message
     error_code = error.error_code

@@ -2,8 +2,8 @@ import logging
 from app.main.domain.repository.beerrepository import BeerRepository
 from app.main.domain.entities.beer import Beer
 from app.main.domain.valueobjects.refid import RefId
-from app.main import db
-from ..model.beermodel import BeerModel
+from app.main.database import db
+from app.main.infrastructure.database.slqalchemy.model.beermodel import BeerModel
 
 
 _logger = logging.Logger(__name__)
@@ -22,6 +22,8 @@ class SQLACBeerRepository(BeerRepository):
         model = BeerModel.create_from(beer)
         db.session.add(model)
         db.session.commit()
+
+        return model.to_entity()
 
     def update(self, beer: Beer) -> 'Beer':
         pass

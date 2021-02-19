@@ -35,7 +35,7 @@ class BeerList(Resource):
 
         dto = CreateBeerDTO(**request.json)
         res = create_beer_command.execute(dto)
-        return res, 201
+        return {"id": res.id.value.hex, "name": res.name.value}, 201
 
     @api.marshal_list_with(model)
     def get(self):
