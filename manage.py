@@ -6,13 +6,8 @@ import dotenv
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-from app.main import create_app, db
-from app.main.config import config_by_name
-from app.main.presentation import api_bp
-
-
-from app.main.infrastructure.exceptions.exceptionhandler import error_handler_bp
-
+from app.main import create_app
+from app.main.database import db
 
 # from app.main.infrastructure.database.slqalchemy.model.beermodel import BeerModel
 
@@ -29,6 +24,12 @@ manager.add_command('db', MigrateCommand)
 @ manager.command
 def run():
     app.run()
+
+
+@ manager.command
+def test():
+
+    pytest.main(["-s", "./app/tests"])
 
 
 @ manager.command
